@@ -2,12 +2,14 @@ import { useState } from 'react';
 import { Search, Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { DropdownMenuHeader } from '@/components/ui/dropdown-menu-header';
 import sbesLogo from '@/assets/sbes-logo.png';
 import physicsLogo from '@/assets/physics-dept-logo.png';
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const navigationItems = [
     { name: 'Home', href: '/' },
@@ -91,10 +93,10 @@ export const Header = () => {
 
             {/* Menu button for desktop */}
             <div className="hidden md:flex md:ml-auto">
-              <Button variant="outline" className="uppercase tracking-wide font-medium">
-                Menu
-                <Menu className="ml-2 h-4 w-4" />
-              </Button>
+              <DropdownMenuHeader 
+                isOpen={isDropdownOpen} 
+                onToggle={() => setIsDropdownOpen(!isDropdownOpen)} 
+              />
             </div>
 
             {/* Mobile navigation items */}
