@@ -15,6 +15,7 @@ import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 import NewsArticle from "./pages/NewsArticle";
 import EventDetail from "./pages/EventDetail";
+import { ScrollToTop } from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +25,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/research" element={<Research />} />
