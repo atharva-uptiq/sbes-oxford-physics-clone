@@ -54,7 +54,7 @@ export const EventsSection = () => {
           Upcoming events
         </h2>
 
-        <div className="space-y-8">
+        <div className="space-y-12">
           {upcomingEvents.map((event, index) => (
             <Link to={`/events/${event.id}`} key={event.id}>
               <div 
