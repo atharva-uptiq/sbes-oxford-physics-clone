@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Calendar, MapPin, Clock } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 interface Event {
   id: number;
@@ -55,11 +56,11 @@ export const EventsSection = () => {
 
         <div className="space-y-8">
           {upcomingEvents.map((event, index) => (
-            <div 
-              key={event.id}
-              className="physics-card animate-fade-in-up"
-              style={{ animationDelay: `${index * 0.2}s` }}
-            >
+            <Link to={`/events/${event.id}`} key={event.id}>
+              <div 
+                className="physics-card animate-fade-in-up cursor-pointer group"
+                style={{ animationDelay: `${index * 0.2}s` }}
+              >
               <div className="grid md:grid-cols-3 gap-8">
                 {/* Image */}
                 <div className="relative overflow-hidden rounded-lg">
@@ -77,7 +78,7 @@ export const EventsSection = () => {
 
                 {/* Content */}
                 <div className="md:col-span-2 space-y-4">
-                  <h3 className="text-2xl md:text-3xl font-bold">
+                  <h3 className="text-2xl md:text-3xl font-bold group-hover:text-primary transition-colors">
                     {event.title}
                   </h3>
                   
@@ -107,13 +108,16 @@ export const EventsSection = () => {
                   </div>
                 </div>
               </div>
-            </div>
+              </div>
+            </Link>
           ))}
         </div>
 
         <div className="text-center mt-16">
-          <Button variant="outline" size="lg" className="animate-fade-in-up">
-            View all events
+          <Button variant="outline" size="lg" className="animate-fade-in-up" asChild>
+            <Link to="/events">
+              View all events
+            </Link>
           </Button>
         </div>
       </div>

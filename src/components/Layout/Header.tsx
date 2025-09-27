@@ -3,6 +3,7 @@ import { Search, Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { DropdownMenuHeader } from '@/components/ui/dropdown-menu-header';
+import { Link } from 'react-router-dom';
 import sbesLogo from '@/assets/sbes-logo.png';
 import physicsLogo from '@/assets/physics-dept-logo.png';
 
@@ -81,13 +82,13 @@ export const Header = () => {
             {/* Main navigation items */}
             <div className="flex flex-col md:flex-row md:items-center md:space-x-6 lg:space-x-8">
               {navigationItems.slice(0, 4).map((item) => (
-                <a
+                <Link
                   key={item.name}
-                  href={item.href}
+                  to={item.href}
                   className="nav-link py-2 md:py-4 text-sm lg:text-base uppercase tracking-wide font-medium"
                 >
                   {item.name}
-                </a>
+                </Link>
               ))}
             </div>
 
@@ -102,13 +103,13 @@ export const Header = () => {
             {/* Mobile navigation items */}
             <div className="flex flex-col space-y-2 mt-4 md:hidden">
               {navigationItems.slice(4).map((item) => (
-                <a
+                <Link
                   key={item.name}
-                  href={item.href}
+                  to={item.href}
                   className="nav-link py-2 text-sm"
                 >
                   {item.name}
-                </a>
+                </Link>
               ))}
             </div>
           </div>

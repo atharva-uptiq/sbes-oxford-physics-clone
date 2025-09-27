@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Calendar } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 interface NewsItem {
   id: number;
@@ -71,11 +72,11 @@ export const NewsSection = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {newsItems.map((item, index) => (
-            <article 
-              key={item.id} 
-              className="physics-card group cursor-pointer animate-fade-in-up"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
+            <Link to={`/news/${item.id}`} key={item.id}>
+              <article 
+                className="physics-card group cursor-pointer animate-fade-in-up"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
               <div className="relative overflow-hidden rounded-lg mb-6">
                 <img 
                   src={item.image} 
@@ -103,13 +104,16 @@ export const NewsSection = () => {
                   {item.date}
                 </div>
               </div>
-            </article>
+              </article>
+            </Link>
           ))}
         </div>
 
         <div className="text-center mt-16">
-          <Button variant="outline" size="lg" className="animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
-            See all news and commentary
+          <Button variant="outline" size="lg" className="animate-fade-in-up" style={{ animationDelay: '0.6s' }} asChild>
+            <Link to="/news">
+              See all news and commentary
+            </Link>
           </Button>
         </div>
       </div>

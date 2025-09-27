@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 
 export const FeaturedSection = () => {
   return (
@@ -30,8 +31,10 @@ export const FeaturedSection = () => {
             </p>
 
             <div className="animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
-              <Button className="btn-hero" size="lg">
-                Quantum at S.B.E.S.
+              <Button className="btn-hero" size="lg" asChild>
+                <Link to="/research">
+                  Quantum at S.B.E.S.
+                </Link>
               </Button>
             </div>
           </div>
