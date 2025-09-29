@@ -24,23 +24,37 @@ export const Header = () => {
   ];
 
   return (
-    <header className="w-full bg-primary/95 backdrop-blur-sm border-b border-border sticky top-0 z-50">
+    <header className="w-full bg-oxford-blue backdrop-blur-sm border-b border-border sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Oxford-style header */}
+        {/* Oxford-style single-line header */}
         <div className="flex items-center justify-between py-4">
+          {/* Left: Logo + Department Name */}
           <div className="flex items-center space-x-4">
             <Link to="/" className="flex items-center space-x-4">
               <img src={physicsLogo} alt="Department of Physics" className="h-12 w-12" />
               <div className="text-white">
                 <div className="text-xs font-medium tracking-wider uppercase">DEPARTMENT OF</div>
-                <div className="w-16 h-px bg-white/60 my-1"></div>
                 <div className="text-2xl font-bold tracking-wider">PHYSICS</div>
               </div>
             </Link>
           </div>
+
+          {/* Center: Main Navigation (Desktop) */}
+          <div className="hidden lg:flex items-center space-x-8">
+            {navigationItems.slice(0, 3).map((item) => (
+              <Link
+                key={item.name}
+                to={item.href}
+                className="text-white hover:text-white/80 text-sm uppercase tracking-wide font-medium transition-colors"
+              >
+                {item.name}
+              </Link>
+            ))}
+          </div>
           
+          {/* Right: Search + Menu Button */}
           <div className="flex items-center space-x-4">
-            {/* Search */}
+            {/* Search (Desktop) */}
             <div className="hidden md:flex items-center">
               {isSearchOpen ? (
                 <div className="flex items-center space-x-2">
@@ -66,16 +80,23 @@ export const Header = () => {
                   onClick={() => setIsSearchOpen(true)}
                 >
                   <Search className="h-4 w-4" />
-                  <span className="ml-2 hidden lg:inline">Search</span>
                 </Button>
               )}
+            </div>
+
+            {/* Menu Button */}
+            <div className="hidden lg:flex">
+              <DropdownMenuHeader 
+                isOpen={isDropdownOpen} 
+                onToggle={() => setIsDropdownOpen(!isDropdownOpen)} 
+              />
             </div>
 
             {/* Mobile menu button */}
             <Button
               variant="ghost"
               size="sm"
-              className="md:hidden text-white hover:bg-white/10"
+              className="lg:hidden text-white hover:bg-white/10"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -83,42 +104,19 @@ export const Header = () => {
           </div>
         </div>
 
-        {/* Navigation */}
-        <nav className={`${isMenuOpen ? 'block' : 'hidden'} md:block border-t border-white/20 md:border-t-0`}>
-          <div className="flex flex-col md:flex-row md:items-center md:space-x-8 py-4 md:py-0">
-            {/* Main navigation items */}
-            <div className="flex flex-col md:flex-row md:items-center md:space-x-6 lg:space-x-8">
-              {navigationItems.slice(0, 4).map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.href}
-                  className="text-white hover:text-white/80 py-2 md:py-4 text-sm lg:text-base uppercase tracking-wide font-medium transition-colors"
-                >
-                  {item.name}
-                </Link>
-              ))}
-            </div>
-
-            {/* Menu button for desktop */}
-            <div className="hidden md:flex md:ml-auto">
-              <DropdownMenuHeader 
-                isOpen={isDropdownOpen} 
-                onToggle={() => setIsDropdownOpen(!isDropdownOpen)} 
-              />
-            </div>
-
-            {/* Mobile navigation items */}
-            <div className="flex flex-col space-y-2 mt-4 md:hidden">
-              {navigationItems.slice(4).map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.href}
-                  className="text-white hover:text-white/80 py-2 text-sm transition-colors"
-                >
-                  {item.name}
-                </Link>
-              ))}
-            </div>
+        {/* Mobile Navigation */}
+        <nav className={`${isMenuOpen ? 'block' : 'hidden'} lg:hidden border-t border-white/20`}>
+          <div className="flex flex-col py-4 space-y-2">
+            {navigationItems.map((item) => (
+              <Link
+                key={item.name}
+                to={item.href}
+                className="text-white hover:text-white/80 py-2 text-sm transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {item.name}
+              </Link>
+            ))}
           </div>
         </nav>
       </div>
