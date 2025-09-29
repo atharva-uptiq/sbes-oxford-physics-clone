@@ -34,6 +34,7 @@ export const Header = () => {
               <img src={physicsLogo} alt="Department of Physics" className="h-12 w-12" />
               <div className="text-white">
                 <div className="text-xs font-medium tracking-wider uppercase">DEPARTMENT OF</div>
+                <div className="w-16 h-px bg-white/60 my-1"></div>
                 <div className="text-2xl font-bold tracking-wider">PHYSICS</div>
               </div>
             </Link>
@@ -57,16 +58,16 @@ export const Header = () => {
             {/* Search (Desktop) */}
             <div className="hidden md:flex items-center">
               {isSearchOpen ? (
-                <div className="flex items-center space-x-2">
+                <div className="flex items-center space-x-2 w-64">
                   <Input 
                     placeholder="Search..." 
-                    className="w-64 bg-white/10 border-white/20 text-white placeholder:text-white/60"
+                    className="w-full bg-white/10 border-white/20 text-white placeholder:text-white/60"
                     autoFocus
                   />
                   <Button 
                     variant="ghost" 
                     size="sm"
-                    className="text-white hover:bg-white/10"
+                    className="text-white hover:bg-white/10 flex-shrink-0"
                     onClick={() => setIsSearchOpen(false)}
                   >
                     <X className="h-4 w-4" />
@@ -76,10 +77,11 @@ export const Header = () => {
                 <Button 
                   variant="ghost" 
                   size="sm"
-                  className="text-white hover:bg-white/10"
+                  className="text-white hover:bg-white/10 w-64 justify-start"
                   onClick={() => setIsSearchOpen(true)}
                 >
                   <Search className="h-4 w-4" />
+                  <span className="ml-2">Search</span>
                 </Button>
               )}
             </div>

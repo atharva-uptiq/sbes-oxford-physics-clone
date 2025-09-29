@@ -32,16 +32,36 @@ export const Hero = () => {
             educate the next generation of leading physicists; and promote the public understanding of physics.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-6 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
-            <Button className="btn-hero text-lg" size="lg">
-              RESEARCH
-            </Button>
-            <Button className="btn-hero text-lg" size="lg">
-              STUDY
-            </Button>
-            <Button className="btn-hero text-lg" size="lg">
-              ENGAGE
-            </Button>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 animate-fade-in-up w-full max-w-4xl" style={{ animationDelay: '0.4s' }}>
+            <div className="physics-card text-center group cursor-pointer">
+              <div className="mb-4">
+                <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto group-hover:bg-primary/30 transition-all">
+                  <div className="w-8 h-8 bg-primary rounded-full animate-pulse-glow"></div>
+                </div>
+              </div>
+              <h3 className="text-xl font-bold mb-2 text-foreground">RESEARCH</h3>
+              <p className="text-sm text-muted-foreground">Advancing scientific knowledge through cutting-edge research in quantum physics, astrophysics, and more.</p>
+            </div>
+            
+            <div className="physics-card text-center group cursor-pointer">
+              <div className="mb-4">
+                <div className="w-16 h-16 bg-secondary/20 rounded-full flex items-center justify-center mx-auto group-hover:bg-secondary/30 transition-all">
+                  <div className="w-8 h-8 bg-accent rounded-full animate-pulse-glow"></div>
+                </div>
+              </div>
+              <h3 className="text-xl font-bold mb-2 text-foreground">STUDY</h3>
+              <p className="text-sm text-muted-foreground">Comprehensive physics education programs from junior college to undergraduate levels.</p>
+            </div>
+            
+            <div className="physics-card text-center group cursor-pointer">
+              <div className="mb-4">
+                <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto group-hover:bg-primary/30 transition-all">
+                  <div className="w-8 h-8 bg-primary rounded-full animate-pulse-glow"></div>
+                </div>
+              </div>
+              <h3 className="text-xl font-bold mb-2 text-foreground">ENGAGE</h3>
+              <p className="text-sm text-muted-foreground">Connect with our physics community through events, outreach programs, and collaborative initiatives.</p>
+            </div>
           </div>
         </div>
       </div>
