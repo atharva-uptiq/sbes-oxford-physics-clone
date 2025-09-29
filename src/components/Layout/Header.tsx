@@ -4,7 +4,6 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { DropdownMenuHeader } from '@/components/ui/dropdown-menu-header';
 import { Link } from 'react-router-dom';
-import sbesLogo from '@/assets/sbes-logo.png';
 import physicsLogo from '@/assets/physics-dept-logo.png';
 
 export const Header = () => {
@@ -25,13 +24,19 @@ export const Header = () => {
   ];
 
   return (
-    <header className="w-full bg-background/95 backdrop-blur-sm border-b border-border sticky top-0 z-50">
+    <header className="w-full bg-primary/95 backdrop-blur-sm border-b border-border sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Top section with logos */}
+        {/* Oxford-style header */}
         <div className="flex items-center justify-between py-4">
           <div className="flex items-center space-x-4">
-            <img src={sbesLogo} alt="S.B.E.S. College of Science" className="h-12 w-12" />
-            <img src={physicsLogo} alt="Department of Physics" className="h-10" />
+            <Link to="/" className="flex items-center space-x-4">
+              <img src={physicsLogo} alt="Department of Physics" className="h-12 w-12" />
+              <div className="text-white">
+                <div className="text-xs font-medium tracking-wider uppercase">DEPARTMENT OF</div>
+                <div className="w-16 h-px bg-white/60 my-1"></div>
+                <div className="text-2xl font-bold tracking-wider">PHYSICS</div>
+              </div>
+            </Link>
           </div>
           
           <div className="flex items-center space-x-4">
@@ -41,12 +46,13 @@ export const Header = () => {
                 <div className="flex items-center space-x-2">
                   <Input 
                     placeholder="Search..." 
-                    className="w-64"
+                    className="w-64 bg-white/10 border-white/20 text-white placeholder:text-white/60"
                     autoFocus
                   />
                   <Button 
                     variant="ghost" 
                     size="sm"
+                    className="text-white hover:bg-white/10"
                     onClick={() => setIsSearchOpen(false)}
                   >
                     <X className="h-4 w-4" />
@@ -56,6 +62,7 @@ export const Header = () => {
                 <Button 
                   variant="ghost" 
                   size="sm"
+                  className="text-white hover:bg-white/10"
                   onClick={() => setIsSearchOpen(true)}
                 >
                   <Search className="h-4 w-4" />
@@ -68,7 +75,7 @@ export const Header = () => {
             <Button
               variant="ghost"
               size="sm"
-              className="md:hidden"
+              className="md:hidden text-white hover:bg-white/10"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -77,7 +84,7 @@ export const Header = () => {
         </div>
 
         {/* Navigation */}
-        <nav className={`${isMenuOpen ? 'block' : 'hidden'} md:block border-t border-border md:border-t-0`}>
+        <nav className={`${isMenuOpen ? 'block' : 'hidden'} md:block border-t border-white/20 md:border-t-0`}>
           <div className="flex flex-col md:flex-row md:items-center md:space-x-8 py-4 md:py-0">
             {/* Main navigation items */}
             <div className="flex flex-col md:flex-row md:items-center md:space-x-6 lg:space-x-8">
@@ -85,7 +92,7 @@ export const Header = () => {
                 <Link
                   key={item.name}
                   to={item.href}
-                  className="nav-link py-2 md:py-4 text-sm lg:text-base uppercase tracking-wide font-medium"
+                  className="text-white hover:text-white/80 py-2 md:py-4 text-sm lg:text-base uppercase tracking-wide font-medium transition-colors"
                 >
                   {item.name}
                 </Link>
@@ -106,7 +113,7 @@ export const Header = () => {
                 <Link
                   key={item.name}
                   to={item.href}
-                  className="nav-link py-2 text-sm"
+                  className="text-white hover:text-white/80 py-2 text-sm transition-colors"
                 >
                   {item.name}
                 </Link>

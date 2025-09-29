@@ -1,5 +1,4 @@
 import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Youtube } from 'lucide-react';
-import sbesLogo from '@/assets/sbes-logo.png';
 import physicsLogo from '@/assets/physics-dept-logo.png';
 
 export const Footer = () => {
@@ -13,8 +12,7 @@ export const Footer = () => {
           {/* College Information */}
           <div className="space-y-6">
             <div className="flex items-center space-x-3">
-              <img src={sbesLogo} alt="S.B.E.S. College" className="h-10 w-10" />
-              <img src={physicsLogo} alt="Physics Department" className="h-8" />
+              <img src={physicsLogo} alt="Department of Physics" className="h-10 w-10" />
             </div>
             <div>
               <h3 className="text-lg font-semibold mb-4">S.B.E.S. College of Science</h3>
@@ -61,10 +59,10 @@ export const Footer = () => {
                 <MapPin className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
                 <div>
                   <p className="text-foreground/80">
-                    S.B.E.S. College of Science<br />
-                    Department of Physics<br />
-                    123 University Avenue<br />
-                    City, State 12345
+                    SBES College Of Arts&Commerce<br />
+                    Saraswatinagar, Saraswati Colony<br />
+                    Aurangpura, Chhatrapati Sambhajinagar<br />
+                    Maharashtra 431001
                   </p>
                 </div>
               </div>

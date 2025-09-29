@@ -6,40 +6,28 @@ import { Badge } from '@/components/ui/badge';
 const People = () => {
   const facultyMembers = [
     {
-      name: "Dr. Sarah Ahmed",
-      position: "Professor of Theoretical Physics",
-      specialization: "Quantum Mechanics, String Theory",
-      email: "sarah.ahmed@sbes.edu"
-    },
-    {
-      name: "Dr. Michael Chen",
+      name: "Mrs. Dr. Sushama S. Vaidya",
       position: "Associate Professor",
-      specialization: "Condensed Matter Physics",
-      email: "michael.chen@sbes.edu"
+      specialization: "M.Sc. Physics Ph.D.",
+      email: "sushama.vaidya@sbes.edu"
     },
     {
-      name: "Dr. Emily Rodriguez",
+      name: "Dr. Swapnil G. Dhole",
       position: "Assistant Professor",
-      specialization: "Astrophysics, Cosmology",
-      email: "emily.rodriguez@sbes.edu"
+      specialization: "M.Sc. Physics Ph.D.",
+      email: "swapnil.dhole@sbes.edu"
     },
     {
-      name: "Dr. James Wilson",
-      position: "Professor Emeritus",
-      specialization: "Nuclear Physics",
-      email: "james.wilson@sbes.edu"
+      name: "Avinash R. Kachere",
+      position: "Assistant Professor",
+      specialization: "M.Sc. Physics NET",
+      email: "avinash.kachere@sbes.edu"
     },
     {
-      name: "Dr. Priya Patel",
-      position: "Lecturer",
-      specialization: "Biophysics, Medical Physics",
-      email: "priya.patel@sbes.edu"
-    },
-    {
-      name: "Dr. David Thompson",
-      position: "Research Professor",
-      specialization: "Particle Physics, CERN Collaboration",
-      email: "david.thompson@sbes.edu"
+      name: "Harish A. Kulkarni",
+      position: "Assistant Professor",
+      specialization: "M Sc. Physics SET",
+      email: "harish.kulkarni@sbes.edu"
     }
   ];
 
